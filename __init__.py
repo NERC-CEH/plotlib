@@ -1,7 +1,7 @@
-'''main init for plotlib'''
+"""main init for plotlib"""
 from enum import Enum as _Enum
 
-__all__ = ['matplotlib-2d', 'matplotlib-3d', 'qplot', 'seabornlib', 'stackedbargraph']
+__all__ = ['matplotlib_2d', 'matplotlib_3d', 'qplot', 'seabornlib', 'stackedbargraph']
 
 
 
@@ -16,9 +16,9 @@ class FigWidths(_Enum):
 
 
 def getwidth(sz, as_inch=True):
-    '''(Enum:FigWidths|float, bool)->float
+    """(Enum:FigWidths|float, bool)->float
 
     Get publication fig widths in cm or inches
-    '''
+    """
     assert isinstance(sz, FigWidths)
     return sz.value/INCH if as_inch else sz.value
