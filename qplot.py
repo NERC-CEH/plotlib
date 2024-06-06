@@ -1,26 +1,24 @@
 # pylint: disable=C0103, too-few-public-methods, locally-disabled, no-self-use, unused-argument, consider-using-enumerate
-'''quick plots to view data while debugging'''
+"""quick plots to view data while debugging"""
 from os import path as _path
 from warnings import warn as _warn
 
-#import matplotlib as _mpl
 import matplotlib.pyplot as Plot
 import matplotlib.mlab as _mlab
 import numpy as _np
-import funclib.baselib as _baselib
-from funclib.to_precision import std_notation as _std_notation
+import funclite.baselib as _baselib
+from funclite.to_precision import std_notation as _std_notation
 from plotlib.mplfuncs import FigWidthsInch as sizes
-#import scipy.stats as _stats
-#import math as _math
+
 
 SIZE = (sizes.two_col.value, sizes.two_col.value)
 
 # see C:\Users\Graham Monkman\OneDrive\Documents\PHD\My Papers\Fiducial_error_minimisation\seaborn\mbe_bars.ipynb
 # for an example of multifacetted journal formatted histo
 def histo(data, bins='auto', normed=True, show=True, figsize=None):
-    '''(list|ndarray, str|int, bool
+    """(list|ndarray, str|int, bool
     Plot a histogram
-    '''
+    """
 
     D = _np.array(data).flatten()
 
@@ -42,7 +40,7 @@ def histo(data, bins='auto', normed=True, show=True, figsize=None):
 
 
 def scatter(x_data, y_data, data_labels=(), group_labels=(), ptsizes=4, data_label_font_sz=8, xlim=None, ylim=None, show=True, figsize=None):
-    '''(list|tuple|ndarray, list|tuple|ndarray|None,
+    """(list|tuple|ndarray, list|tuple|ndarray|None,
             list|tuple|ndarray, list|tuple|ndarray,
             2-tuple|None, 2-tuple|None, bool) - void
 
@@ -84,7 +82,7 @@ def scatter(x_data, y_data, data_labels=(), group_labels=(), ptsizes=4, data_lab
     >>>y_data=[[-5,-6,-7],[5,5,12]]
     >>>group_labels=('negatives','positives')
     >>>scatter(x_data, y_data, group_labels)
-    '''
+    """
 
     if isinstance(x_data, (list, tuple)):
         if _baselib.depth(x_data) == 1:
@@ -175,7 +173,7 @@ def scatter(x_data, y_data, data_labels=(), group_labels=(), ptsizes=4, data_lab
 
 
 def bar_(xvalues, yvalues, title='', xlabel='x', ylabel='y', alpha=1, color='royalblue', xlabels=None, width=0.8, output=None, xmax=None, ymax=None, vlines=None, show=True):
-    '''
+    """
         Create and save a bar plot.
         Args:
         - xvalues = x-axis positions for bars
@@ -190,7 +188,7 @@ def bar_(xvalues, yvalues, title='', xlabel='x', ylabel='y', alpha=1, color='roy
         - xmax    = max x-value
         - ymax    = max y-value
         - width   = width of bars
-    '''
+    """
     _, ax1 = Plot.subplots()
     # Size
     if xmax:
@@ -229,7 +227,7 @@ def bar_(xvalues, yvalues, title='', xlabel='x', ylabel='y', alpha=1, color='roy
 
 
 def pretty_bin(bin_edges, use_mid=True, precision=2):
-    '''(list|tuple, bool) -> list
+    """(list|tuple, bool) -> list
     Given bin edges, get text x col labels
 
     bin_edges: a list/tuple with the bin edges, eg.
@@ -244,7 +242,7 @@ def pretty_bin(bin_edges, use_mid=True, precision=2):
 
     >>>pretty_bin([0, 0.5, 1], use_mid=False)
     [0.0-0.50, 0.5-1.0]
-    '''
+    """
     out = []
 
     for i, item in enumerate(bin_edges[0:len(bin_edges)-1]):
