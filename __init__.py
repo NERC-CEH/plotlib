@@ -13,6 +13,16 @@ class FigWidths(_Enum):
     single_col = 9
     one_and_a_half_col = 14
     two_col = 19
+    four_col = 19*2
+
+
+class FigWidthsInches(_Enum):
+    minimal = 3/INCH
+    half_col = 6/INCH
+    single_col = 9/INCH
+    one_and_a_half_col = 14/INCH
+    two_col = 19/INCH
+    four_col = 19*2/INCH
 
 
 def getwidth(sz, as_inch=True):

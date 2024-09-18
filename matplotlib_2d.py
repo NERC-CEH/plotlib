@@ -20,7 +20,7 @@ import numpy as _np
 import util
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
-from funclib.baselib import lists_remove_empty_pairs as _remove_empty
+from funclite.baselib import lists_remove_empty_pairs as _remove_empty
 
 
 # Set font, globally
